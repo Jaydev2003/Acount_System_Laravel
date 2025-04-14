@@ -1,0 +1,51 @@
+.message-container {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    display: none;
+    z-index: 10000;
+}
+
+.success-message {
+    background: #ffb144;
+    color: white;
+}
+
+.error-message {
+    background: #ff3860;
+    color: white;
+}
+
+.main-panel{
+    padding: 30px;
+}
+
+.custom-filter-box{
+    background: #f8f9fa;
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    min-width: 180px;
+}
+
+table thead th { 
+    background-color:  #ffaa33 !important ;
+    padding: 1rem !important;
+    
+    border-radius: 6px !important;
+    color: #ffffff !important ;
+   
+}
+

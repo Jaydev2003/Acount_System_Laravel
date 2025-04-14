@@ -1,0 +1,146 @@
+/* General Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f7fc;
+}
+
+.main-panel {
+    padding: 20px !important;
+}
+
+.message-container {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    display: none;
+    z-index: 10000;
+}
+
+/* Success & error message styling */
+.success-message {
+    background: #ffb144;
+    color: white;
+}
+
+.error-message {
+    background: #ff3860;
+    color: white;
+}
+
+
+/* Card Styling */
+.card {
+    transition: all 0.3s ease-in-out;
+    border: none;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.bg-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.bg-danger {
+    background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+}
+
+.bg-warning {
+    background: linear-gradient(135deg, #ffb347 0%, #ffcc33 100%);
+}
+
+.bg-success {
+    background: linear-gradient(135deg, #38ef7d 0%, #11998e 100%);
+}
+
+/* Text Styling */
+.text-white {
+    color: white !important;
+}
+
+h5 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Badge Styling */
+.badge {
+    font-size: 14px;
+    padding: 6px 12px;
+    border-radius: 15px;
+}
+
+.badge-success {
+    background-color: #28a745;
+    color: white;
+}
+
+.badge-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Chart Section */
+
+.filter-label {
+    margin-bottom: 0; /* Removes unnecessary bottom space */
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.filter-box {
+    background: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#reportrange {
+    background: #f8f9fa;
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    min-width: 180px;
+}
+
+#reportrange:hover {
+    background: #e9ecef;
+}
+#reportChart {
+    background: #fff; /* White background */
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+canvas {
+    max-width: 100% !important;
+    max-height: 100% !important;
+}
+
