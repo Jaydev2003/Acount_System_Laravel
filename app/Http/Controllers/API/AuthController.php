@@ -161,16 +161,32 @@ class AuthController extends Controller
 
     public function forgotPassword(Request $request)
     {
-        $request->validate([
-            'email' => 'required|email|exists:users,email',
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email'
         ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => HttpStatusCode::BAD_REQUEST,
+                'message' => 'Validation error',
+                'errors' => $validator->errors()
+            ]);
+        }
+
+        $user = User::where('email', $request->email)->first();
+
+        if (!$user) {
+            return response()->json([
+                'status' => HttpStatusCode::NOT_FOUND,
+                'message' => 'Email address not found in our records.'
+            ]);
+        }
 
         $token = Str::random(64);
 
         DB::table('password_resets')->updateOrInsert(
             ['email' => $request->email],
             [
-                'email' => $request->email,
                 'token' => $token,
                 'created_at' => Carbon::now()
             ]
@@ -178,17 +194,20 @@ class AuthController extends Controller
 
         try {
             Mail::to($request->email)->send(new ResetPasswordMail($token));
+
             return response()->json([
-                HttpStatusCode::SUCCESS,
+                'status' => HttpStatusCode::SUCCESS,
                 'message' => 'Reset password link sent to your email.'
             ]);
         } catch (\Exception $e) {
             return response()->json([
-                'status' => 400,
+                'status' => HttpStatusCode::INTERNAL_SERVER_ERROR,
                 'message' => 'Error sending email: ' . $e->getMessage()
             ]);
         }
     }
+
+    
 
     public function resetPassword(Request $request)
     {
